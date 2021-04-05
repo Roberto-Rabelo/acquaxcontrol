@@ -1,0 +1,16 @@
+﻿
+<div class="dropdown">
+    
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a asp-controller="Condominio" asp-action="Index">Selecionar condominio</a>
+        </button>
+    
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @foreach (var item in Model)
+            {
+                <a asp-area="Admin" asp-controller="blocos" asp-action="Index"  >@item.nomeCondominio </a>
+            }
+
+
+        </div>
+</div>

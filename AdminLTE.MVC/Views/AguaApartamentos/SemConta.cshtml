@@ -1,0 +1,14 @@
+﻿@if (User.IsInRole("Provisorio"))
+{
+<div class="alert alert-danger mt-3" role="alert">
+    Seu usuário está no modo provisório! Favor enviar seu e-mail e o respectivo condomínio, bloco e unidade para suporte@acquaxdobrasil.com.br
+</div>
+}
+<div class="jumbotron">
+    <h1 class="display-4">Bem-vinde, Acqua X Control! </h1>
+    <hr class="my-4">
+    <p class="lead">OPS! @User.Identity.Name,seu cadastro foi realizado recentemente. Em breve seu demonstrativo constará em nosso sistema! </p>
+    <p class="lead">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg" role="button">Voltar ao inicio</a>
+    </p>
+</div>

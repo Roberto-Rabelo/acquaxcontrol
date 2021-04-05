@@ -1,0 +1,44 @@
+﻿.imgteste {
+    width: 450px;
+    height: 210px;
+}
+.info-box .info-box-number {
+    font-weight: 55;
+}
+@media (max-width: 420px) {
+    .imgdetalhe{
+    width: 290px;
+    text-align: left;
+}
+    .titulo {
+        font-size: 1.5rem;
+    }
+    .litros {
+        margin-left: 120px !important;
+    }
+    .graficos{
+     
+        height:350px !important;
+    }
+}
+.btn-circle.btn-xl {
+    width: 110px;
+    height: 80px;
+    padding: 10px 16px;
+    margin-bottom:10px;
+    margin-left:45px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+

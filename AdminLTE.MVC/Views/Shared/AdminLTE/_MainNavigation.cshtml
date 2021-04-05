@@ -1,0 +1,141 @@
+﻿@using static AdminLTE.MVC.Helpers.NavigationIndicatorHelper;
+
+<aside class="main-sidebar sidebar-light-primary elevation-4">
+
+    <div class="sidebar" style="width:250px">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="~/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Olá, @User.Identity.Name </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="info">
+                    <a href="#" class="d-block">Olá, Visitante</a>
+                </div>
+            </div>
+        }
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item ">
+                    <a asp-controller="AguaApartamentos" asp-action="Index" s class="nav-link @Url.MakeActiveClass("home","index")">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Home
+                        </p>
+                    </a>
+                </li>
+                @if (User.IsInRole("Sindico"))
+                {
+                    <li class="nav-item ">
+                        <a asp-controller="AguaApartamentos" asp-action="ApartamentoCondominio" class="nav-link @Url.MakeActiveClass("AguaApartamentos","Index")">
+                            <i class="nav-icon fas fa-tint"></i>
+                            <p>
+                                Água condominio
+                            </p>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole("Provisorio"))
+                {
+
+
+                    <li class="nav-item  d-sm-inline-block">
+                        <a asp-controller="AguaApartamentos" asp-action="Index" class="nav-link linktop"> Suas Medições</a>
+                    </li>
+                    <li class="nav-item d-sm-inline-block">
+                        <a asp-controller="Home" asp-action="AlterarSenha" class="nav-link linktop"> Alterar senha</a>
+                    </li>
+                    <li class="nav-item d-sm-inline-block">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">Sair</button>
+                        </form>
+                    </li>
+                }
+                @if (User.IsInRole("Engenharia"))
+                {
+                    <li class="nav-item ">
+                        <a asp-controller="OrdemservicoVistorias" asp-action="Create" class="nav-link @Url.MakeActiveClass("OrdemservicosVistoria","Create")">
+                            <i class="fas fa-align-justify"></i>
+                            <p>
+                                Criar Vistorias
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a asp-controller="OrdemservicosVistoria" asp-action="List" class="nav-link @Url.MakeActiveClass("AguaApartamentos","Index")">
+                            <i class="fas fa-user-edit"></i>
+                            <p>
+                                Minhas Vistorias
+                            </p>
+                        </a>
+                    </li>
+                }
+
+                @if (User.IsInRole("Member"))
+                {
+                    <li class="nav-item ">
+                        <a asp-controller="AguaApartamentos" class="nav-link @Url.MakeActiveClass("AguaApartamentos","Index")">
+                            <i class="nav-icon fas fa-tint"></i>
+                            <p>
+                                Água
+                            </p>
+                        </a>
+                    </li>
+                    @*<li class="nav-item ">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-bolt"></i>
+                    <p>
+                        Energia
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-fire"></i>
+                    <p>
+                        Gás
+                    </p>
+                </a>
+            </li>*@
+
+                    @*<li class="nav-item ">
+                <a href="#" class="nav-link" >
+                    <i class="nav-icon fas fa-lock"></i>
+                    <p>
+                        Privacy
+                    </p>
+                </a>
+            </li>*@
+                }
+                else
+                {
+
+                }
+            </ul>
+        </nav>
+    </div>
+    <style>
+        .fixar {
+            border-top: 0px solid #333;
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            position: initial;
+            width: 100%;
+        }
+    </style>
+    <a href="~/Home" class="brand-link border-bottom-0 fixar">
+        <span class=" font-weight-light"></span>
+        <img src="~/img/acquaXcontrol.png" alt="AcquaX" class="brand-image" />
+
+    </a>
+    
+</aside>

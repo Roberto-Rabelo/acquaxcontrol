@@ -1,0 +1,137 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.AguaApartamento>
+
+@{
+    var data = ViewBag.Data;
+    var valor = ViewBag.TotalCondominio;
+    var volume = ViewBag.vol_condominio;
+
+    var diasSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(data));
+    var valorSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(valor));
+    var volumeSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(volume));
+
+}
+
+
+
+<h2>Sindico condominio @Html.DisplayFor(modelItem => Model.FirstOrDefault().Apartamento.IdAspNetUsers) </h2>
+<strong><h3 style="padding:2%;">Consumo mensal</h3></strong>
+
+<div class="container">
+   
+        <div class="col-12">
+            <canvas id=myChart></canvas>
+        </div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+                var data = @diasSerializado;
+    var valor = @valorSerializado;
+    var volume = @volumeSerializado;
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+                var chart = new Chart(ctx, {
+                    // O tipo de Chart
+                    type: 'bar',
+
+                    // Base de Dados
+
+
+                    data: {
+                        labels: data,
+                        datasets: [
+                            {
+
+                                label: 'Volume consumido pelo condominio',
+                                backgroundColor: 'rgb(135, 206, 235)',
+                                borderColor: 'rgb(135, 206, 235)',
+                                data: volume
+
+                            },
+                            {
+                                label: ' ',
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                data: []
+                            }
+                            ,
+
+
+                ]
+
+                    },
+
+            // Configurações adicionais
+                    options: {
+                        responsive: true,
+                        legend: {
+                             position: 'bottom'
+                        },
+                        title: { display: true, text: 'Volume consumido' },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+</script>
+
+
+
+<div class="card-body table-responsive p-0">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.FotoPath)</th>
+                <th> @Html.DisplayNameFor(model => model.bloco)/@Html.DisplayNameFor(model => model.Unidade)</th>
+                <th> @Html.DisplayNameFor(model => model.dt_leitura_atual)</th>
+                <th>  @Html.DisplayNameFor(model => model.vlr_agua)</th>
+                <th>  @Html.DisplayNameFor(model => model.volume_consumido)</th>
+               
+                <th>Mais</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src=" @Html.DisplayFor(modelItem => item.FotoPath)" alt="" class=" mr-2" style="height:50px; width:50px;">
+
+                    </td>
+                    <td>
+                        @*<img src="img/101-fev-20.jpg" alt="" class=" mr-2" style="height:60%;">*@
+                        @Html.DisplayFor(modelItem => item.bloco)/@Html.DisplayFor(modelItem => item.Unidade)
+                    </td>
+                    <td>
+                        @*<img src="img/101-fev-20.jpg" alt="" class=" mr-2" style="height:60%;">*@
+                        @Html.DisplayFor(modelItem => item.dt_leitura_atual)
+                    </td>
+                    <td>  @Html.DisplayFor(modelItem => item.total_unidade) </td>
+                    <td>
+                        <small class="text-success mr-1">
+                            
+                            @Html.DisplayFor(modelItem => item.volume_consumido)
+                        </small>
+                        @Html.DisplayFor(modelItem => item.volume_consumido)
+                    </td>
+
+                    <td>
+                        <a asp-action="filtroDetails" asp-route-id="@item.AguaApartamentoId">
+                            @*<i class="fas fa-search"></i>*@
+                            DETALHES
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>

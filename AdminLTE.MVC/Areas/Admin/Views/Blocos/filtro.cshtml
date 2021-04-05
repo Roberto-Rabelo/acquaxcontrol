@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.Apartamento>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apartamentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAspNetUsers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blocos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apartamentos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAspNetUsers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blocos.Bloco)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApartamentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApartamentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApartamentoId">Delete</a> |
+                <a asp-action="filtro" asp-route-id="@item.ApartamentoId">Contas</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

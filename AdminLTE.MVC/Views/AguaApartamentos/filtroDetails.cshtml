@@ -1,0 +1,271 @@
+﻿@model AdminLTE.MVC.Models.AguaApartamento
+
+@{
+    ViewData["Title"] = "Details";
+    <link rel="stylesheet" href="~/css/site.css" />
+    var TotalAC = ViewBag.TotalAC;
+    var nomeCondominio = ViewBag.nomeCondominio;
+    var TotalVolCond = ViewBag.TotalVolConsumido;
+    var TotalAC_cond= ViewBag.totalAC_cond;
+}
+<script>
+    function cont() {
+        window.print();
+    }
+</script>
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container " id="print">
+        <div class="text-center">
+            <img class="imgdetalhe imgteste" src="~/img/acquaXcontrol.png" />
+        </div>
+
+        <hr class="my-4">
+
+
+
+        @*<a asp-action="Edit" asp-route-id="@Model.AguaApartamentoId">Edit</a> |*@
+        @*<a asp-action="Index">Voltar a listagem </a>*@
+        <!--</div>-->
+        @* Formatando string  *@
+
+
+        @{
+            CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
+            var TotalAC_view = TotalAC.ToString("F", CultureInfo.CurrentCulture);
+            
+            var TotalVolCond_view = TotalVolCond.ToString("F", CultureInfo.CurrentCulture);
+            var vlr_esgoto_view = Model.vlr_esgoto.ToString("C2", CultureInfo.CurrentCulture);
+            var vlr_agua_view = Model.vlr_agua.ToString("C2", CultureInfo.CurrentCulture);
+            var area_comum_view = Model.area_comum.ToString("C2", CultureInfo.CurrentCulture);
+            var total_unidade_view = Model.total_unidade.ToString("C2", CultureInfo.CurrentCulture);
+            @*var tarifa_view = Model.tarifa.ToString("C3", CultureInfo.CurrentCulture);*@
+        }
+
+
+        <!-- Main content -->
+        <section class="content cssfiltrodetalhes" style="background: #ececec; " id="tabela">
+            <div class="container-fluid">
+                <!-- Header Detalhes  -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Card Condômino-->
+                        Usuário
+                        <div class="detalhenome">
+                            <div class="inner">
+                                <p>@Html.DisplayFor(model => model.Apartamento.IdAspNetUsers)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-md-2">
+                        <!-- Card Apto/Bloco -->
+                        Apartamento/Bloco
+                        <div class="detalheapto">
+                            <div class="inner">
+                                <p>@Html.DisplayFor(model => model.Unidade)/@Html.DisplayFor(model => model.bloco)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-md-3">
+                        <!-- Card Data da Medição -->
+                        Período de Consumo
+                        <div class="detalhemedicao">
+                            <div class="inner">
+                                <p>
+                                    @Html.DisplayFor(model => model.dt_leitura_anterior) -
+                                    @Html.DisplayFor(model => model.dt_leitura_atual)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Card Data da Medição -->
+                        Próxima Medição
+                        <div class="detalhemedicao">
+                            <div class="inner">
+                                <p>@Html.DisplayFor(model => model.dt_leitura_proxima)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <!-- Header Fim -->
+                </div>
+                <!-- /.row -->
+                <!-- Box Detalhamento de Conta-->
+                <div class="row">
+                    <section class="col-lg-7">
+                        <!-- Header Box -->
+                        <div class="card">
+                            <div class="card-header ui-sortable-handle" style="cursor: move;">
+                                <h2 class="card-title">
+                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    Detalhamento do Consumo
+                                </h2>
+                            </div>
+                            <!-- Linha 1 Detalhes -->
+                            <div class="card-body">
+                                <div class="conteiner">
+                                    <!-- Linha 2 Detalhes -->
+                                    <div class="row" style=" padding-bottom: 5%; border-bottom: 1px solid rgba(0,0,0,.125); padding-top: 2%;">
+                                        <div class="col-lg-4 um">
+                                            Leitura Anterior unidade
+                                            @Html.DisplayFor(model => model.mes_anterior)m³
+                                        </div>
+                                        <div class="col-lg-4 dois">
+                                            Leitura Atual unidade
+                                            @Html.DisplayFor(model => model.mes_atual)m³
+                                        </div>
+                                        <div class="col-lg-4 tres">
+                                            Consumido pela unidade
+                                            <br />
+                                            @Html.DisplayFor(model => model.volume_consumido)m³
+                                        </div>
+
+                                    </div>
+                                    <div class="row" style=" padding-bottom: 5%; border-bottom: 1px solid rgba(0,0,0,.125);">
+                                        <div class="col-lg-4 um">
+                                            Valor da Água
+                                            <br />
+                                            @Html.DisplayFor(model => vlr_agua_view)
+                                        </div>
+                                        <div class="col-lg-4 dois">
+                                            Valor do Esgoto
+                                            <br />
+                                            @Html.DisplayFor(model => vlr_esgoto_view)
+                                        </div>
+                                        <div class="col-lg-4 tres">
+                                            Área Comum
+                                            <br />
+                                            @Html.DisplayFor(model => area_comum_view)
+
+
+                                        </div>
+                                    </div>
+                                    <!-- Linha 3 Detalhes -->
+                                    <div class="row" style="height: 50px; padding-top: 2%;">
+                                        <div class="col-lg-6 um">
+                                            <h4>
+                                                Valor Total
+                                                @Html.DisplayFor(model => total_unidade_view)
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <!--/ Espaço Vazio -->
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <!--/ Espaço Vazio -->
+                                        </div>
+                                    </div>
+                                    @if (nomeCondominio == "Onda Carioca ")
+                                    {
+                                        <div class="row">
+                                            <div class="col-lg-12 card-title  justify-content-center" style="align-items:center;">
+                                                <i class="fas fa-chart-pie mr-1"></i>
+                                                Consumo Condominio
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style=" padding-bottom: 5%; border-bottom: 1px solid rgba(0,0,0,.125); padding-top: 2%;">
+
+
+                                            <div class="col-lg-4 um">
+                                                Área comum
+                                                <br />
+                                                @TotalAC_view m³
+                                            </div>
+
+                                            <div class="col-lg-4 tres">
+                                                Condôminos
+                                                <br />
+                                                @TotalVolCond_view m³
+                                            </div>
+                                            <div class="col-lg-4 tres">
+                                                Total Volume
+                                                <br />
+                                                @TotalAC_cond m³
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                    <!-- Texto no Final -->
+                                    <div style="padding-top: 10%;">
+                                        <p>Caso haja alguma discrepância no seu consumo, favor verificar se há vazamento nas descargas e nas torneiras.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-content p-0">
+                                    <!-- Morris chart - Sales -->
+
+                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                        <canvas id="sales-chart-canvas" height="600" style="height: 300px; display: block; width: 665px;" class="chartjs-render-monitor" width="1330"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="col-md-4">
+                        @{
+                            if (Model.FotoPath.Contains("https://cs210032000caae87de.blob.core.windows.net/image/"))
+                            {
+                                <img src="@Html.DisplayFor(model => model.FotoPath)" style="width:100%;" />
+
+                            }
+                            else
+                            {
+
+                                <img src="/img/xcontrol.jpg" style="width:100%;">
+                                <div class="card-header ui-sortable-handle" style="cursor: move;">
+                                    <h4 class="card-title">
+                                        <i class="fas fa-tint mr-1"></i>
+                                        @Html.DisplayFor(model => model.FotoPath)
+                                    </h4>
+                                </div>
+
+                             }
+                        }
+
+                                    <a asp-action="index" class="btn btn-primary btn-lg active bntFilto" role="button" aria-pressed="true">Voltar ao início</a>
+                                    <a class="btn btn-primary btn-lg active bntFilto" role="button" aria-pressed="true"
+                                       onClick="cont()">Imprimir filipeta</a>
+                                </div>
+                            </div>
+
+            </div>
+        </section>
+        @if (nomeCondominio == "Arena park")
+        {
+            
+            Double vlr_medio;
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Entenda sua forma de cobrança - metro cúbico médio!</strong> <br />
+        Consiste em dividir valor da conta da CEDAE pelo volume consumido pelo condominio, logo teremos:<br />
+        valor conta CEDAE\volume total do condominio = valor metro cúbico
+        <br />
+        <strong>
+            Base para valor nesse mês:
+        </strong>
+        <br />
+        @{
+            CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
+            var totalVolumeCondominio = Model.total_unidade_condominio;
+            var totalValorCondominio = Model.total_valor_condominio;
+            vlr_medio = totalValorCondominio / totalVolumeCondominio;
+         
+           var valorfinal = Math.Round(vlr_medio, 2);
+
+        }
+        R$@totalValorCondominio.ToString("n2")/@totalVolumeCondominio m³ = R$ @valorfinal. Assim cada metro cúbico valerá R$ @valorfinal);<br />
+        <strong>Salientando que método de cobrança é estabelicido pela administração do condominio</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+        }
+
+    </div>
+</div>

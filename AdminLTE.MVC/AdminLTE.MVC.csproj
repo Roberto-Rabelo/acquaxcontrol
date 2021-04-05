@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AdminLTE.MVC-920C0028-F5A1-4E98-88F4-E8AB0E68099F</UserSecretsId>
+    <Configurations>Debug;Release;teste</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200828183608_atualizacao.cs" />
+    <Compile Remove="Data\Migrations\20200828183608_atualizacao.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200828185234_atualizacaos.cs" />
+    <Compile Remove="Data\Migrations\20200828185234_atualizacaos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200828190936_atualizaçaos.cs" />
+    <Compile Remove="Data\Migrations\20200828190936_atualizaçaos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200828191102_atualizaçaos.cs" />
+    <Compile Remove="Data\Migrations\20200828191102_atualizaçaos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200828191204_atualizaçaos.cs" />
+    <Compile Remove="Data\Migrations\20200828191204_atualizaçaos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201007173642_novaa.cs" />
+    <Compile Remove="Data\Migrations\20201007173642_novaa.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201007174722_novaBaseSigFox.cs" />
+    <Compile Remove="Data\Migrations\20201007174722_novaBaseSigFox.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201007190146_baseSigfox3.cs" />
+    <Compile Remove="Data\Migrations\20201007190146_baseSigfox3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201007191013_baseSigfox4.cs" />
+    <Compile Remove="Data\Migrations\20201007191013_baseSigfox4.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201008130233_mudancaDotipo.cs" />
+    <Compile Remove="Data\Migrations\20201008130233_mudancaDotipo.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201008130813_tipomudanaca.cs" />
+    <Compile Remove="Data\Migrations\20201008130813_tipomudanaca.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Repositories\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,121 @@
+﻿@page
+@model LoginModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .lnr-eye {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="~/Home">
+                <img src="~/img/acquaXcontrol.png" width="100%" />
+
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <strong><p class="login-box-msg">Consulte sua conta com todos os detalhes.</p></strong>
+
+                <form id="account" method="post">
+                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.Email" class="form-control" placeholder="e-mail" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.Password" id="senha" class="form-control" placeholder="senha" />
+
+                        <div class="input-group-append" id="olho">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Lembrar Sempre
+                                </label>
+                            </div>
+                        </div>
+
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            </div>
+
+                      
+
+
+                    </div>
+
+                    <div asp-validation-summary="All" class="text-danger small"></div>
+                </form>
+
+                <a asp-area="" asp-controller="Home" asp-action="RecuperarSenha" style="margin-left: 55px;"> <span>Esqueceu senha? cliquei aqui</span></a>
+                <div class="col-12">
+                    <a asp-area="" asp-controller="Home" asp-action="index">
+
+                        <button class="btn btn-primary btn-block">Voltar</button>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var senha = $('#senha');
+        var olho = $("#olho");
+
+        olho.mousedown(function () {
+            senha.attr("type", "text");
+        });
+
+        olho.mouseup(function () {
+            senha.attr("type", "password");
+        });
+        // para evitar o problema de arrastar a imagem e a senha continuar exposta, 
+        //citada pelo nosso amigo nos comentários
+        $("#olho").mouseout(function () {
+            $("#senha").attr("type", "password");
+        });
+    </script>
+    
+
+    
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/adminlte.min.js"></script>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>

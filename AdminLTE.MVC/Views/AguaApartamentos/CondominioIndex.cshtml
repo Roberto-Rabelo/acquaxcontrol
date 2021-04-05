@@ -1,0 +1,152 @@
+﻿@model AdminLTE.MVC.Models.Condominio
+
+<!-- Card Header -->
+<section class="content" style="margin-top:2%" ;>
+    <div class="container-fluid">
+        <br />
+        <div class="jumbotron pb-3">
+            <div class="container">
+                <h1 class="display-4">Bem-vindo, @Html.DisplayFor(modelItem => Model.Sindico)</h1>
+                <hr class="my-4">
+                <p>Selecione o recurso desejado para o @Html.DisplayFor(modelItem => Model.Nome) - @Html.DisplayFor(modelItem => Model.Endereco)</p>
+
+            </div>
+        </div>
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            @*@foreach (var item in Model)
+                {*@
+
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box  bg-info">
+                    <div class="inner">
+                        <h1 class="h1"> Água</h1>
+
+                        <p style="margin-bottom:0px">Consumo de Água</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <a asp-action="filtro" asp-route-id=" @Model.CondominioId" class="small-box-footer" style="color:#fff">Ver <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            @*}*@
+
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                        <h1 class="h1">  Gás</h1>
+
+                        <p style="margin-bottom:0px">Consumo de Gás</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <a class="small-box-footer  disabled" style="color:#fff">Ver <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                        <h1 class="h1"> Energia</h1>
+
+                        <p style="margin-bottom:0px">Consumo de Energia</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <a class="small-box-footer  disabled" style="color:#fff">Ver<i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h1 class="h1"> Contato</h1>
+
+                        <p style="margin-bottom:0px">Está com algum problema?</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a data-toggle="modal" data-target="#exampleModal" class="small-box-footer" style="color:#fff">Ver<i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+    </div>
+</section>
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"> Nossos parceiros   </h2>
+<hr class="" />
+<!-- Icon Divider-->
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <a href="https://api.whatsapp.com/send?phone=5521967446767&text=Oi,%20Aarim%21%20%23AcquaX" target="_blank">
+            <span class="fa-stack fa-4x">
+                @*<i class="fas fa-circle fa-stack-2x text-primary"></i>*@
+                @*<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>*@
+                <img src="~/img/Aarim.png" alt="AcquaX" class="brand-image" style="width:160px; height:150px;" />
+
+            </span>
+            <h4 class="my-3">Aarim</h4>
+            <p class="text-muted">O Aarim é o assistente virtual pronto para ajudar o seu cliente a encontrar e comprar seus produtos e serviços. Qualquer plataforma de mensagens pode ser um SuperApp com o Aarim!</p>
+        </a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="https://instagram.com/gabnixciderdistribuidora?igshid=19chtwrm42vrh" target="_blank">
+            <span class="fa-stack fa-4x">
+                <img src="~/img/nix-logo.png" alt="AcquaX" class="brand-image" style="width:190px; height:150px;" />
+            </span>
+            <h4 class="my-3">Nix Cider Premium</h4>
+            <p class="text-muted">
+                A bebida das 4 estações.
+                Bebida a base de maçã, leve, refrescante e sem glúten.
+                Em três sabores: maçã, morango com limão e frutas vermelhas.
+            </p>
+        </a>
+    </div>
+
+    <div class="col-md-4">
+        <a href="# target="_blank">
+            <span class="fa-stack fa-4x">
+                <img src="~/img/Logo-GAB-Scurity.png" alt="AcquaX" class="brand-image" style="width:190px; height:150px;" />
+            </span>
+            <h4 class="my-3"> Gab Security</h4>
+            <p class="text-muted">
+                Seguro**
+            </p>
+        </a>
+    </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Encaminhe sua dúvida para o e-mail abaixo, incluindo seu login e condomínio:
+                <br />
+                <strong>suporte@acquaxdobrasil.com.br</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fecha</button>
+
+            </div>
+        </div>
+    </div>
+</div>

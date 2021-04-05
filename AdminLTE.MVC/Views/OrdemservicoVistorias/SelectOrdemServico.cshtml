@@ -1,0 +1,104 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.OrdemservicoVistoria>
+
+@{
+    ViewData["Title"] = "Index";
+    var NumVistoria = ViewBag.NumVistoria;
+}
+
+<h1>Módulo - Engenharia </h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    <div class=" col-md-12 justify-content-center register-logo">
+        <a href="~/Home">
+            <img src="~/img/acquaXcontrol.png" style="width:350px;" />
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+    <a asp-controller="OrdemservicoVistorias" asp-action="CreateAltoConsumo" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div class="col-md-3 col-sm-6 col-12">
+
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-chart-line"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Alto consumo\ Troca</span>
+                    <span class="info-box-number"></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+
+            <!-- /.info-box -->
+        </div>
+    </a>
+    <a  asp-controller="OrdemservicoVistorias" asp-action="CreateVistoriaGeral" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div class="col-md-3 col-sm-6 col-12">
+
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-file-signature"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text"> Vistoria Geral</span>
+                    <span class="info-box-number"></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+
+            <!-- /.info-box -->
+        </div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div class="col-md-3 col-sm-6 col-12">
+
+
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-door-open"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text"> Inicio de Obra</span>
+                    <span class="info-box-number"></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+
+            <!-- /.info-box -->
+        </div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div class="col-md-3 col-sm-6 col-12">
+
+
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-door-closed"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">  Conclusão de Obra</span>
+                    <span class="info-box-number"></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+
+            <!-- /.info-box -->
+        </div>
+    </a>
+
+
+
+</div>
+<a asp-action="Index">
+    <div>
+        @*<a asp-action="Assinatura" id="save" class="small-box-footer" style="color:#212529">Assinar </a>*@
+
+        <button type="button" class="btn btn-primary">Volta Pagina inicial</button>
+
+    </div>
+</a>

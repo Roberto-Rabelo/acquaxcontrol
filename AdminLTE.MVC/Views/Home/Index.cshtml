@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/landing-page.css" />
+    <link rel="stylesheet" href="~/css/landing-page.min.css" />
+}
+
+@*<div class="container-fluid">*@
+ <!-- Head -->
+
+<header class="masthead text-white text-center">
+    <div class="overlay" style="background: #376a89; opacity:10; "></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5 titlehome">Bem-Vindo ao Acqua X Control, Sistema de Medição e Monitoramento.</h1>
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+
+
+                <div class="col-md-4 mx-auto">
+                    <a asp-controller="AguaApartamentos" asp-action="Index">
+                        <button type="submit" class="btn btn-block btn-lg btn-primary btnlogin">Verificar suas medições</button>
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-4 mx-auto justify-content-center">
+                    <a asp-area="Identity" asp-page="/Account/Login"> <button type="submit" class="btn btn-block btn-lg btn-primary btnlogin">Faça seu Login</button></a>
+                </div>
+
+
+            }
+        </div>
+    </div>
+</header>
+
+ <!-- Icons Grid -->
+<section class="features-icons bg-light text-center"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex">
+                        <i class="m-auto fas fa-signal" style="color:#5cbeea;"></i>
+                    </div>
+                    <h3>Histórico de Consumo</h3>
+                    <p class="lead mb-0">Você pode acompanhar o seu consumo e analisar os volumes respectivos a cada mês.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex">
+                        <i class="m-auto fas fa-bell" style="color:#5cbeea;"></i>
+                    </div>
+                    <h3>Monitoramento de Reservatório</h3>
+                    <p class="lead mb-0">Receba um alerta da cisterna ou da caixa d'água quando o nível estiver mínimo ou máximo.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex">
+                        <i class="m-auto fas  fa-wrench" style="color: #5cbeea;"></i>
+                    </div>
+                    <h3>Controle de Bomba</h3>
+                    <p class="lead mb-0">Em caso de falha ou defeito, nosso sistema alertará você.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Image Showcases -->
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(img/Condominio-Digital.jpg);"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Torne a administração do seu condomínio mais interativa e facilite sua gestão</h2>
+                <p class="lead mb-0">Você terá todas as ferramentas necessárias para uma excelente organização em seu condomínio</p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6 text-white showcase-img" style="        background-image: url(img/Monitoramento.jpg);"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>Melhor solução para o monitoramento dos serviçõs de Água, Gás e Energia.</h2>
+                <p class="lead mb-0">Realizamos a medição de Água, Gás e Energia em cada unidade do condomínio e também monitoramos o funcionamento dos equipamentos essenciais para seu condomínio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="call-to-action text-white text-center" style="background: #376a89; opacity: 10; ">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h2 class="mb-4">Entre em contato conosco agora!</h2>
+                <h3  class="comercial"> <i class="fas fa-phone-square"></i> 4003-5214 / <i class="fas fa-envelope-square"></i>comercial@acquaxdobrasil.com.br</h3>
+                <p>Caso prefira, preencha o formulário abaixo e deixe sua mensagem. Retornaremos o mais rápido possível.</p>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <!--Grid column-->
+                <div class="col-md-12 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">Nome</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">E-mail</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">Assunto</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <label for="message">Mensagem</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Enviar Mensagem</a>
+                    </div>
+                    <div class="status"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

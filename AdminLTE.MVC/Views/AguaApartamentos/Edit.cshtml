@@ -1,0 +1,101 @@
+﻿@model AdminLTE.MVC.Models.AguaApartamento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AguaApartamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AguaApartamentoId" />
+            <div class="form-group">
+                <label asp-for="dt_leitura_atual" class="control-label"></label>
+                <input asp-for="dt_leitura_atual" class="form-control" />
+                <span asp-validation-for="dt_leitura_atual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dt_leitura_anterior" class="control-label"></label>
+                <input asp-for="dt_leitura_anterior" class="form-control" />
+                <span asp-validation-for="dt_leitura_anterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dt_leitura_proxima" class="control-label"></label>
+                <input asp-for="dt_leitura_proxima" class="form-control" />
+                <span asp-validation-for="dt_leitura_proxima" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloco" class="control-label"></label>
+                <input asp-for="bloco" class="form-control" />
+                <span asp-validation-for="bloco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unidade" class="control-label"></label>
+                <input asp-for="Unidade" class="form-control" />
+                <span asp-validation-for="Unidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mes_anterior" class="control-label"></label>
+                <input asp-for="mes_anterior" class="form-control" />
+                <span asp-validation-for="mes_anterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mes_atual" class="control-label"></label>
+                <input asp-for="mes_atual" class="form-control" />
+                <span asp-validation-for="mes_atual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="volume_consumido" class="control-label"></label>
+                <input asp-for="volume_consumido" class="form-control" />
+                <span asp-validation-for="volume_consumido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vlr_agua" class="control-label"></label>
+                <input asp-for="vlr_agua" class="form-control" />
+                <span asp-validation-for="vlr_agua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vlr_esgoto" class="control-label"></label>
+                <input asp-for="vlr_esgoto" class="form-control" />
+                <span asp-validation-for="vlr_esgoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="area_comum" class="control-label"></label>
+                <input asp-for="area_comum" class="form-control" />
+                <span asp-validation-for="area_comum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="total_unidade" class="control-label"></label>
+                <input asp-for="total_unidade" class="form-control" />
+                <span asp-validation-for="total_unidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifa" class="control-label"></label>
+                <input asp-for="tarifa" class="form-control" />
+                <span asp-validation-for="tarifa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FotoPath" class="control-label"></label>
+                <input asp-for="FotoPath" class="form-control" />
+                <span asp-validation-for="FotoPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApartamentoId" class="control-label"></label>
+                <select asp-for="ApartamentoId" class="form-control" asp-items="ViewBag.ApartamentoId"></select>
+                <span asp-validation-for="ApartamentoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

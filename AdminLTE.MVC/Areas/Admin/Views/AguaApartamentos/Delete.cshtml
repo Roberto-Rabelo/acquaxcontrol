@@ -1,0 +1,105 @@
+﻿@model AdminLTE.MVC.Models.AguaApartamento
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AguaApartamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_atual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_atual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_anterior)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_anterior)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_proxima)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_proxima)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bloco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bloco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_anterior)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mes_anterior)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_atual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mes_atual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.volume_consumido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.volume_consumido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_agua)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vlr_agua)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_esgoto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vlr_esgoto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.area_comum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.area_comum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.total_unidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.total_unidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FotoPath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FotoPath)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apartamento.Nome)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AguaApartamentoId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

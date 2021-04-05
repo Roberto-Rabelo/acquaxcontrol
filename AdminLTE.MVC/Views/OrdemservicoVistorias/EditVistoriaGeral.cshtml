@@ -1,0 +1,300 @@
+﻿@model AdminLTE.MVC.Models.OrdemVistoriaGeral
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<link rel="stylesheet" href="~/css/VistoriaAltoconsumo.css">
+<h1>Edit</h1>
+
+<h4> Vistoria alto consumo\Troca </h4>
+<hr />
+<div class="row justify-content-center">
+
+    <div class="col-md-4">
+        <form asp-action="EditVistoriaGeral" id="vistoria" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            @* FOTOS DA VISTORIA  *@
+
+            <span class="index1">Foto na vistoria</span>
+            <input type="checkbox" id="toggle-ft1">
+
+            <span class="index1">Forma de pagamento</span>
+            <input type="checkbox" id="toggle-fp">
+
+
+            <div class="form-group" id="tes2">
+                <div class="card-body" style="padding-bottom: 0px;">
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label asp-for="dt_solicitacao" class="card-title"></label>
+
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input asp-for="dt_solicitacao" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            <span asp-validation-for="dt_solicitacao" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label asp-for="dt_agendada" class="control-label"></label>
+
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input asp-for="dt_agendada" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            <span asp-validation-for="dt_agendada" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label asp-for="dt_execucao" class="control-label"></label>
+
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input asp-for="dt_execucao" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            <span asp-validation-for="dt_execucao" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="especificacao" class="control-label"></label>
+                    <input asp-for="especificacao" class="form-control" type="text" placeholder="Diga o serviço">
+                    <span asp-validation-for="especificacao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="condominioId" class="control-label"></label>
+                    <select asp-for="condominioId" class="form-control" asp-items="ViewBag.Nome"></select>
+                    <span asp-validation-for="condominioId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="nomeCliente" class="control-label"></label>
+                    <input asp-for="nomeCliente" class="form-control" type="text" placeholder="Nome Completo Cliente">
+                    <span asp-validation-for="nomeCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="documento" class="control-label"></label>
+                    <input asp-for="documento" class="form-control" type="text" placeholder="RG ou CPF">
+                    <span asp-validation-for="documento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="bloco" class="control-label"></label>
+                    <input asp-for="bloco" class="form-control" type="text" placeholder="Bloco">
+                    <span asp-validation-for="bloco" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="unidade" class="control-label"></label>
+                    <input asp-for="unidade" class="form-control" type="text" placeholder="Unidade">
+                    <span asp-validation-for="unidade" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="endereco" class="control-label"></label>
+                    <input asp-for="endereco" class="form-control" type="text" placeholder="Endereço">
+                    <span asp-validation-for="endereco" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="bairro" class="control-label"></label>
+                    <input asp-for="bairro" class="form-control" type="text" placeholder="bairro">
+                    <span asp-validation-for="bairro" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="emailCliente" class="control-label"></label>
+                    <input asp-for="emailCliente" class="form-control" type="text" placeholder="Email Cliente">
+                    <span asp-validation-for="emailCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="mostrarfp">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="formaPagamento" class="control-label"></label>
+                    <select asp-for="formaPagamento" class="form-control">
+                        <option>Não tem </option>
+                        <option>Dinheiro</option>
+                    </select>
+                    <span asp-validation-for="formaPagamento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="mostrarfp">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="valor" class="control-label"></label>
+                    <input asp-for="valor" class="form-control" placeholder="Digite valor do serviço" />
+                    <span asp-validation-for="valor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="mostrarfp">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="pago" class="control-label"></label>
+                    <select asp-for="pago" class="form-control">
+                        <option>Não</option>
+                        <option>Sim</option>
+                    </select>
+                    <span asp-validation-for="pago" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group" id="mostrarfoto">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="FotoPath01" class="control-label"></label>
+                    <input asp-for="FotoPath01" id="arquivo" type="file" name="files_Fotopath" class="form-control" />
+                    <span asp-validation-for="FotoPath01" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group" id="mostrarPg">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="observacao" class="control-label"></label>
+
+                    <textarea style="width:277px; height:180px;" asp-for="observacao"></textarea>
+                    <span asp-validation-for="observacao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="status" class="control-label"></label>
+                    <select asp-for="status" class="form-control">
+                        <option>A fazer</option>
+                        <option>Feito</option>
+                    </select>
+                    <span asp-validation-for="status" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card-body" style="padding-bottom: 0px;padding-top: 0px;">
+                    <label asp-for="conclusao" class="control-label"></label>
+
+                    <textarea style="width:277px; height:180px;" asp-for="conclusao"></textarea>
+                    <span asp-validation-for="conclusao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" id="assinaturaCliente">
+
+
+                <label asp-for="assinaturaCliente" class="control-label"></label>
+                <input asp-for="assinaturaCliente" id="imageCheck" class="form-control" />
+                <span asp-validation-for="assinaturaCliente" class="text-danger"></span>
+            </div>
+            <div>
+                <label>Assinatura do Cliente no quadrado abaixo</label>
+
+                <div class="wrapper-assinatura">
+                    <canvas id="signature-pad" class="signature-pad" width=250 height=367></canvas>
+                </div>
+                <div style="margin-left:25px;">
+                    <button id="clear" type="button" class="btn btn-warning" style="margin:5px"> Limpar assinatura </button>
+                    <button id="save" class="btn btn-primary" style="margin:5px">Salvar vistoria e assinatura</button>
+
+                </div>
+
+                @*<form action="">
+                <textarea name="" id="imageCheck" cols="30" rows="10"></textarea>
+            </form>*@
+
+
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@3.0.0-beta.3/dist/signature_pad.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+<script>
+    function download(dataURL, filename) {
+        if (navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1) {
+            window.open(dataURL);
+        } else {
+            var blob = dataURLToBlob(dataURL);
+            var url = window.URL.createObjectURL(blob);
+
+            var a = document.createElement("a");
+            a.style = "display: none";
+            a.href = url;
+            a.download = filename;
+
+            document.body.appendChild(a);
+            a.click();
+
+            window.URL.revokeObjectURL(url);
+        }
+    }
+
+    function dataURLToBlob(dataURL) {
+        // Code taken from https://github.com/ebidel/filer.js
+        var parts = dataURL.split(';base64,');
+        var contentType = parts[0].split(":")[1];
+        var raw = window.atob(parts[1]);
+        var rawLength = raw.length;
+        var uInt8Array = new Uint8Array(rawLength);
+
+        for (var i = 0; i < rawLength; ++i) {
+            uInt8Array[i] = raw.charCodeAt(i);
+        }
+
+        return new Blob([uInt8Array], { type: contentType });
+    }
+
+
+    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        penColor: 'rgb(0, 0, 0)'
+    });
+
+
+    var saveButton = document.getElementById('save');
+    var cancelButton = document.getElementById('clear');
+
+
+
+    saveButton.addEventListener("click", function (event) {
+        if (signaturePad.isEmpty()) {
+            alert("Faça sua assinatura.");
+        } else {
+            var dataURL = signaturePad.toDataURL();
+            //download(dataURL, "signature.png");
+            //alert(dataURL);
+            $("#imageCheck").val(dataURL);
+        }
+    });
+
+    cancelButton.addEventListener('click', function (event) {
+        signaturePad.clear();
+    });
+
+</script>
+
+

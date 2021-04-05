@@ -1,0 +1,134 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.AguaApartamento>
+
+@{
+    CultureInfo culture = new CultureInfo("pt-BR");
+    var data = ViewBag.Data;
+    var valor = ViewBag.valor;
+
+
+    var diasSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(data));
+    var valorSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(valor));
+
+
+}
+
+<div class="jumbotron pb-3 mt-2">
+    <div class="container">
+        <h1 class="display-4">Relatório de consumo</h1>
+        <hr class="my-4">
+        <p>Condominio @ViewBag.nome - @Html.DisplayFor(modelItem => Model.FirstOrDefault().Apartamento.Nome) </p>
+
+
+    </div>
+</div>
+
+
+<strong><h3 style="padding:2%;">Gráfico de consumo</h3></strong>
+<canvas id=myChart></canvas>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+                var data = @diasSerializado;
+                var valor = @valorSerializado;
+        var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // O tipo de Chart
+                    type: 'bar',
+
+                    // Base de Dados
+
+
+                    data: {
+                        labels: data,
+                        datasets: [
+                            {
+
+                                label: 'Consumo 2020-2021',
+                                backgroundColor: 'rgb(135, 206, 235)',
+                                borderColor: 'rgb(135, 206, 235)',
+                                data: valor
+
+                            },
+                            {
+                            label:'' ,
+                            backgroundColor: 'transparent',
+                            borderColor: 'Transparent',
+                              data: []
+                            }
+                            ,
+
+
+                ]
+
+            },
+            // Configurações adicionais
+                    options: {
+                        responsive: true,
+                        legend: {
+                             position: 'bottom'
+                        },
+                        title: { display: true, text: 'Volume consumido '},
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+
+</script>
+@{ 
+    CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
+}
+
+<div class="card-body table-responsive p-0">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th> Imagem</th>
+
+                <th> @Html.DisplayNameFor(model => model.dt_leitura_atual)</th>
+                <th>  Valor da água</th>
+
+                <th>Detalhes da medição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var total_unidade_view = item.total_unidade.ToString("C2", CultureInfo.CurrentCulture);
+
+                <tr>
+                    <td>
+                        <img src=" @Html.DisplayFor(modelItem => item.FotoPath)" alt="" class=" mr-2" style="height:50px; width:50px;">
+
+                    </td>
+
+                    <td>
+                      
+                        @Html.DisplayFor(modelItem => item.dt_leitura_atual)
+                    </td>
+                    <td>  @Html.DisplayFor(modelItem => total_unidade_view) </td>
+
+                    <td>
+                        <a asp-action="filtroDetails" asp-route-id="@item.AguaApartamentoId" 
+                           asp-route-volume="@item.total_unidade_condominio" asp-route-valorconta="@item.total_valor_condominio">
+                            <i class="fas fa-search"></i>
+
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
+

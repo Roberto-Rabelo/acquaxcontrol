@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.Apartamento>
+
+@{
+    ViewData["Title"] = "ApartamentoPessoa";
+}
+
+
+<h3>Apartamento</h3>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apartamentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAspNetUsers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blocos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blocos.Condominio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apartamentos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAspNetUsers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blocos.Bloco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blocos.Condominio.Nome)
+                </td>
+
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.ApartamentoId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ApartamentoId">Details</a> |*@
+                    <a asp-action="filtro" asp-route-id="@item.ApartamentoId">Medições</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

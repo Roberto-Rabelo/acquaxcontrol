@@ -1,0 +1,129 @@
+﻿.box {
+    position: relative;
+    display: inline-block;
+    top: 20px;
+    margin-right: 20px;
+}
+
+.index {
+    background: none repeat scroll 0 0 #0063ff;
+    border: 2px solid #ffffff;
+   
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 5px 15px;
+    right: -10px;
+    top: -10px;
+}
+
+.index1 {
+    background: none repeat scroll 0 0 #2DF8FD;
+    border: 2px solid #ffffff;
+   
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 5px 15px;
+    right: -10px;
+    top: -10px;
+}
+.index2 {
+    background: none repeat scroll 0 0 #CEA039;
+    border: 2px solid #ffffff;
+    
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 5px 15px;
+    right: -10px;
+    top: -10px;
+}
+#mostra1 {
+    display: none;
+}
+
+#mostra4 {
+    display: none;
+}
+
+#mostra3 {
+    display: none;
+}
+
+#mostra2 {
+    display: none;
+}
+#mostra5 {
+    display: none;
+}
+/*FOTO */
+#mostrarfoto {
+    display: none;
+}
+#mostrarfoto01 {
+    display: none;
+}
+#mostrarfoto02 {
+    display: none;
+}
+#mostrarfoto03 {
+    display: none;
+}
+#mostrarfp {
+    display: none;
+}
+#toggle-1:checked ~ #mostra1 {
+    display: block !important;
+}
+
+#toggle-2:checked ~ #mostra2 {
+    display: block !important;
+}
+
+#toggle-3:checked ~ #mostra3 {
+    display: block !important;
+}
+
+#toggle-4:checked ~ #mostra4 {
+    display: block !important;
+}
+
+#toggle-5:checked ~ #mostra5 {
+    display: block !important;
+}
+
+#toggle-ft1:checked ~ #mostrarfoto {
+    display: block !important;
+}
+#toggle-ft2:checked ~ #mostrarfoto01{
+    display: block !important;
+}
+#toggle-ft3:checked ~ #mostrarfoto02{
+    display: block !important;
+}
+#toggle-ft4:checked ~ #mostrarfoto03 {
+    display: block !important;
+}
+#toggle-fp:checked ~ #mostrarfp {
+    display: block !important;
+}
+.rodapeVistoria {
+    text-align: center;
+    font-family: 'Arial Rounded MT';
+    color: #2596be;
+    font-size:25px;
+}
+.imgvistoria {
+    width: 350px;
+    height: 180px;
+    margin: 5px;
+}
+@media (max-width: 420px) {
+    .ordem{
+        display:none;
+    }
+    .imgvistoria{
+        width:300px;
+    }
+}

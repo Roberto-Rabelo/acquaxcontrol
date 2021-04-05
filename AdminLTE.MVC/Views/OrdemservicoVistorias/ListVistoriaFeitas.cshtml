@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.OrdemservicoVistoria>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/VistoriaAltoconsumo.css">
+<h1>Módulo - Engenharia </h1>
+
+
+<div class="row">
+    <div class=" col-md-12 justify-content-center register-logo">
+        <a href="~/Home">
+            <img src="~/img/acquaXcontrol.png" style="width:350px;" />
+        </a>
+    </div>
+</div>
+
+<h4 class="display-2"> Vistorias feitas</h4>
+<table class="table ">
+    <thead>
+
+        <tr>
+            <th class="ordem">
+                Condomínio
+            </th>
+            <th>
+                Data Exec
+            </th>
+            <th>
+                Vistoria
+            </th>
+            <th>
+
+            </th>
+            <th class="ordem">
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+        @foreach (var item in ViewBag.ViewListVistorialGeral as IEnumerable<OrdemVistoriaGeral>)
+        {
+            <tr>
+                <td>
+                    @item.Condominio.Nome
+                </td>
+                <td>
+                    @item.dt_execucao
+                </td>
+                <td>
+                    @item.tipoVistoria
+                </td>
+                <td>
+                    <a asp-action="filtroDetailsGeral" asp-route-id="@item.OrdemVistoriaGeralId">
+                        <i class="fas fa-search"></i>
+
+                    </a>
+                </td>
+            </tr>
+       
+         }
+
+        @foreach (var item in ViewBag.ViewListVistorialAltoConsumo as IEnumerable<OrdemservicoVistoria>)
+        {
+            <tr>
+                <td>
+                    @item.Condominio.Nome
+                </td>
+                <td>
+                    @item.dt_execucao
+                </td>
+                <td>
+                    @item.tipoVistoria
+                </td>
+                <td>
+                    <a asp-action="filtroDetailsAltoConsumo" asp-route-id="@item.OrdemservicoVistoriaId">
+                        <i class="fas fa-search"></i>
+
+                    </a>
+                </td>
+            </tr>
+           
+        }
+
+        </tbody>
+    </table>

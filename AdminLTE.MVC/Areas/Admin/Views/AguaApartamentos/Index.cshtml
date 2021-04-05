@@ -1,0 +1,116 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.AguaApartamento>
+
+@{
+    ViewData["Title"] = "Medição Agua";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Medição Agua</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_leitura_atual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_leitura_anterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_leitura_proxima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bloco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mes_anterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mes_atual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.volume_consumido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vlr_agua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vlr_esgoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area_comum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_unidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoPath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dt_leitura_atual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dt_leitura_anterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dt_leitura_proxima)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bloco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mes_anterior)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mes_atual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.volume_consumido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vlr_agua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vlr_esgoto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.area_comum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total_unidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FotoPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apartamento.Nome)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AguaApartamentoId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AguaApartamentoId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AguaApartamentoId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

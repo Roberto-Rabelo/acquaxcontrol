@@ -1,0 +1,5 @@
+﻿@media (max-width: 420px) {
+    .navbar-expand .navbar-nav .nav-link{
+        padding-right: 0rem;
+    }
+}

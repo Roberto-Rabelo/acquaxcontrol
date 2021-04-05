@@ -1,0 +1,224 @@
+﻿@model AdminLTE.MVC.Models.AguaApartamento
+
+@{
+    ViewData["Title"] = "Details";
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AguaApartamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_atual)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_atual)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_anterior)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_anterior)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_proxima)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_proxima)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.bloco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.bloco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_anterior)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.mes_anterior)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_atual)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.mes_atual)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.volume_consumido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.volume_consumido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_agua)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.vlr_agua)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_esgoto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.vlr_esgoto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.area_comum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.area_comum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.total_unidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.total_unidade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FotoPath)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FotoPath)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apartamento.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AguaApartamentoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<!-- Main content -->
+<section class="content" style="background: #ececec;">
+    <div class="container-fluid">
+        <!-- Header Detalhes  -->
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Card Condômino-->
+                Condômino:
+                <div class="detalhenome">
+                    <div class="inner">
+                        <p>José Maria</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3">
+                <!-- Card Apto/Bloco -->
+                Apartamento/Bloco
+                <div class="detalheapto">
+                    <div class="inner">
+                        <p>201/Bloco 02</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3">
+                <!-- Card Data da Medição -->
+                Data de Medição
+                <div class="detalhemedicao">
+                    <div class="inner">
+                        <p>23/09/2020</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <!-- Header Fim -->
+        </div>
+        <!-- /.row -->
+        <!-- Box Detalhamento de Conta-->
+        <div class="row">
+            <section class="col-lg-7 connectedSortable ui-sortable">
+                <!-- Header Box -->
+                <div class="card">
+                    <div class="card-header ui-sortable-handle" style="cursor: move;">
+                        <h2 class="card-title">
+                            <i class="fas fa-chart-pie mr-1"></i>
+                            Detalhamendo da Conta
+                        </h2>
+                    </div>
+                    <!-- Linha 1 Detalhes -->
+                    <div class="card-body">
+                        <div class="conteiner">
+                            <div class="row" style=" padding-bottom: 5%; border-bottom: 1px solid rgba(0,0,0,.125);">
+                                <div class="col-lg-4 um">
+                                    Valor da Água
+
+                                </div>
+                                <div class="col-lg-4 dois">
+                                    Valor do Esgoto
+
+                                </div>
+                                <div class="col-lg-4 tres">
+                                    Área Comum
+                                </div>
+                            </div>
+                            <!-- Linha 2 Detalhes -->
+                            <div class="row" style=" padding-bottom: 5%; border-bottom: 1px solid rgba(0,0,0,.125); padding-top: 2%;">
+                                <div class="col-lg-4 um">
+                                    Mês Anterior
+
+                                </div>
+                                <div class="col-lg-4 dois">
+                                    Mês Atual
+
+                                </div>
+                                <div class="col-lg-4 tres">
+                                    <!--/ Espaço Vazio -->
+                                </div>
+                            </div>
+                            <!-- Linha 3 Detalhes -->
+                            <div class="row" style="height: 50px; padding-top: 2%;">
+                                <div class="col-lg-4 um">
+                                    Valor Total
+
+                                </div>
+                                <div class="col-lg-4">
+                                    <!--/ Espaço Vazio -->
+
+                                </div>
+                                <div class="col-lg-4">
+                                    <!--/ Espaço Vazio -->
+                                </div>
+                            </div>
+                            <!-- Texto no Final -->
+                            <div style="padding-top: 10%;">
+                                <p>Olá.....Caso o valor da sua conta tenha subido demais neste mês procure por vazamento, nas descargas do imóvel, torneiras e infiltrações.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content p-0">
+                            <!-- Morris chart - Sales -->
+
+                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="sales-chart-canvas" height="600" style="height: 300px; display: block; width: 665px;" class="chartjs-render-monitor" width="1330"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+</section>
+            <section class="col-lg-5 connectedSortable ui-sortable">
+
+                <img src="foto.png" />
+
+            </section>
+
+
+
+

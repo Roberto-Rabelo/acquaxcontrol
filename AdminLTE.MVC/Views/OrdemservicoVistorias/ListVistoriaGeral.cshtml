@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.OrdemVistoriaGeral>
+
+@{
+    ViewData["Title"] = "Vistoria Geral";
+}
+
+<link rel="stylesheet" href="~/css/VistoriaAltoconsumo.css">
+<h1>Módulo - Engenharia </h1>
+
+
+<div class="row">
+    <div class=" col-md-12 justify-content-center register-logo">
+        <a href="~/Home">
+            <img src="~/img/acquaXcontrol.png" style="width:350px;" />
+        </a>
+    </div>
+</div>
+
+<table class="table ">
+    <thead>
+
+        <tr>
+            <th class="ordem">
+                @Html.DisplayNameFor(model => model.Condominio)
+            </th>
+            <th>
+              Condomínio 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_solicitacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dt_execucao)
+            </th>
+            <th class="ordem">
+                @Html.DisplayNameFor(model => model.IdAspNetUsers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+        <tr>
+            <td class="ordem">
+                @Html.DisplayFor(modelItem => item.nomeCliente)
+
+            </td>
+            @*<td>
+                <img src=" @Html.DisplayFor(modelItem => item.assinaturaCliente)" alt="" class=" mr-2" style="height:50px; width:50px;">
+
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Condominio.Nome)
+
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.endereco)
+
+            </td>*@
+            <td>  @Html.DisplayFor(modelItem => item.dt_solicitacao) </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.dt_execucao)
+            </td>
+            <td class="ordem">
+
+                @Html.DisplayFor(modelItem => item.IdAspNetUsers)
+            </td>
+
+            <td>
+                <a asp-action="EditVistoriaGeral" asp-route-id="@item.OrdemVistoriaGeralId">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+            </td>
+
+            <td>
+                <a asp-action="filtroDetails" asp-route-id="@item.OrdemVistoriaGeralId">
+                    <i class="fas fa-search"></i>
+
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

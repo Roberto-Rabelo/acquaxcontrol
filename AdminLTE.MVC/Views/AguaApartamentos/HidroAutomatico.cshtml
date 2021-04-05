@@ -1,0 +1,396 @@
+﻿@model IEnumerable<AdminLTE.MVC.Models.HidroAutoSigfox>
+
+@{
+    CultureInfo.CurrentCulture = new CultureInfo("pt-BR", false);
+
+    //populando grafico
+    var data493409 = ViewBag.data493409;
+    var consumo493409 = ViewBag.consumo493409;
+    var data494538 = ViewBag.data494538;
+    var consumo494538 = ViewBag.consumo494538;
+    var data435565 = ViewBag.data435565;
+    var consumo435565 = ViewBag.consumo435565;
+
+    //numeração hidrometro
+    var total_493409 = ViewBag.total_493409;
+    var total_494538 = ViewBag.total_494538;
+    var total_435565 = ViewBag.total_435565;
+    var total_439AA7 = ViewBag.total_439AA7;
+   
+
+    // serializando
+
+
+    var data493409Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(data493409));
+    var consumo493409Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(consumo493409));
+
+
+    var data494538Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(data494538));
+    var consumo494538Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(consumo494538));
+
+    var data435565Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(data435565));
+    var consumo435565Serializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(consumo435565));
+
+}
+
+<link rel="stylesheet" href="/css/adminlte.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="~/css/hidroAutomatico.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<div class="container">
+    <div class="text-center  ">
+        <img class="imgdetalhe imgteste" src="~/img/acquaXcontrol.png" />
+    </div>
+    <div class="jumbotron pb-3 mt-2">
+        <div class="container">
+            <h1 class="display-4 titulo">Acompanhamento do consumo</h1>
+            <hr class="my-4">
+            <p> Os dados são atualizados a cada 15min</p>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-tint"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Hidrometo Piscina</span>
+                    <span class="info-box-text"></span>
+                    <span class="info-box-number">@total_435565 m³ </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-tint"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Hidrometo </span>
+                    <span class="info-box-text">Abastecimento Geral</span>
+                    <span class="info-box-number">@total_494538 m³ </span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-tint"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Hidrometo - SPA</span>
+                    <span class="info-box-text"></span>
+                    <span class="info-box-number">@total_493409 m³</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="fas fa-tint"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Hidrometo </span>
+                    <span class="info-box-text">HC - Ana</span>
+                    <span class="info-box-number">@total_439AA7 m³</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-3 col-6 col-12">
+                <!-- small box -->
+
+               
+                <div class="small-box  bg-info">
+                    <div class="inner">
+                        <p style="margin-bottom:0px;font-size:20px">Local: @Html.DisplayFor(modelitem => item.nome)</p>
+                        <p style="margin-bottom:0px;font-size:20px">@Html.DisplayFor(modelitem => item.data) </p>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+    @*<strong><h3 style="padding:2%;">Gráficos de consumo</h3></strong>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <canvas id=myChart class="graficos"></canvas>
+    <script>
+ 
+    var data = @data494538Serializado;
+                var valor = @consumo494538Serializado;
+        var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // O tipo de Chart
+                    type: 'line',
+
+                    // Base de Dados
+
+
+                    data: {
+                        labels: data,
+                        datasets: [
+                            {
+
+                                label: '15º Andar',
+                                backgroundColor: 'rgb(135, 206, 235)',
+                                borderColor: 'rgb(0,0,205)',
+                                data: valor
+
+                            },
+
+                ]
+
+            },
+            // Configurações adicionais
+                    options: {
+                        responsive: true,
+                        legend: {
+                             position: 'bottom'
+                        },
+                        title: { display: true, text: '15º andar - atualizações 15min' },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
+    <canvas id=myChart2 class="graficos"></canvas>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+
+                var data2 = @data493409Serializado;
+    var valor2 = @consumo493409Serializado;
+        var ctx = document.getElementById('myChart2').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // O tipo de Chart
+                    type: 'bar',
+
+                    // Base de Dados
+                    data: {
+                        labels: data2,
+                        datasets: [
+                            {
+
+                                label: 'Jacuzzi',
+                                backgroundColor: 'rgb(0,0,205)',
+                                borderColor: 'rgb(0,0,205)',
+                                data: valor2
+
+                            },
+
+                ]
+
+            },
+            // Configurações adicionais
+                    options: {
+                        responsive: true,
+                        legend: {
+                             position: 'bottom'
+                        },
+                        title: { display: true, text: 'Jacuzzi - atualizações 15min' },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
+    <canvas id=myChart3 class="graficos"></canvas>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+
+            var data3 = @data435565Serializado;
+                var valor3 = @consumo435565Serializado;
+        var ctx = document.getElementById('myChart3').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // O tipo de Chart
+                    type: 'bar',
+
+                    // Base de Dados
+                    data: {
+                        labels: data3,
+                        datasets: [
+                            {
+
+                                label: 'Piscina\Suite 03',
+                                backgroundColor: 'rgb(0,0,205)',
+                                borderColor: 'rgb(0,0,205)',
+                                data: valor3
+
+                            },
+
+                ]
+
+            },
+            // Configurações adicionais
+                    options: {
+                        responsive: true,
+                        legend: {
+                             position: 'bottom'
+                        },
+                        title: { display: true, text: 'Piscina\Suite 03 - atualizações 15min' },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>*@
+
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"> Outros Serviços   </h2>
+    <hr class="" />
+    <!-- Icon Divider-->
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <a href="https://api.whatsapp.com/send?phone=5521967446767&text=Oi,%20Aarim%21%20%23AcquaX" target="_blank">
+                <span class="fa-stack fa-4x">
+                    @*<i class="fas fa-circle fa-stack-2x text-primary"></i>*@
+                    @*<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>*@
+                    <img src="~/img/Aarim.png" alt="AcquaX" class="brand-image" style="width:160px; height:150px;" />
+
+                </span>
+                <h4 class="my-3">Aarim</h4>
+                <p class="text-muted">O Aarim é o assistente virtual pronto para ajudar o seu cliente a encontrar e comprar seus produtos e serviços. Qualquer plataforma de mensagens pode ser um SuperApp com o Aarim!</p>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="https://instagram.com/gabnixciderdistribuidora?igshid=19chtwrm42vrh" target="_blank">
+                <span class="fa-stack fa-4x">
+                    <img src="~/img/nix-logo.png" alt="AcquaX" class="brand-image" style="width:190px; height:150px;" />
+                </span>
+                <h4 class="my-3">Nix Cider Premium</h4>
+                <p class="text-muted">
+                    A bebida das 4 estações.
+                    Bebida a base de maçã, leve, refrescante e sem glúten.
+                    Em três sabores: maçã, morango com limão e frutas vermelhas.
+                </p>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="# target="_blank">
+                <span class="fa-stack fa-4x">
+                    <img src="~/img/Logo-GAB-Scurity.png" alt="AcquaX" class="brand-image" style="width:190px; height:150px;" />
+                </span>
+                <h4 class="my-3"> Gab Security</h4>
+                <p class="text-muted">
+                    A Gab Seguros é uma empresa que visa garantir tranquilidade, segurança e o suporte necessário para você e sua família nos momentos mais difíceis. Poupando a sua família de resolver todas as burocracias e preocupações em um momento de tanta fragilidade.
+                </p>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+    $(function () {
+        /* jQueryKnob */
+
+        $('.knob').knob({
+            /*change : function (value) {
+             //console.log("change : " + value);
+             },
+             release : function (value) {
+             console.log("release : " + value);
+             },
+             cancel : function () {
+             console.log("cancel : " + this.value);
+             },*/
+            draw: function () {
+
+                // "tron" case
+                if (this.$.data('skin') == 'tron') {
+
+                    var a = this.angle(this.cv)  // Angle
+                        ,
+                        sa = this.startAngle          // Previous start angle
+                        ,
+                        sat = this.startAngle         // Start angle
+                        ,
+                        ea                            // Previous end angle
+                        ,
+                        eat = sat + a                 // End angle
+                        ,
+                        r = true
+
+                    this.g.lineWidth = this.lineWidth
+
+                    this.o.cursor
+                        && (sat = eat - 0.3)
+                        && (eat = eat + 0.3)
+
+                    if (this.o.displayPrevious) {
+                        ea = this.startAngle + this.angle(this.value)
+                        this.o.cursor
+                            && (sa = ea - 0.3)
+                            && (ea = ea + 0.3)
+                        this.g.beginPath()
+                        this.g.strokeStyle = this.previousColor
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false)
+                        this.g.stroke()
+                    }
+
+                    this.g.beginPath()
+                    this.g.strokeStyle = r ? this.o.fgColor : this.fgColor
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false)
+                    this.g.stroke()
+
+                    this.g.lineWidth = 2
+                    this.g.beginPath()
+                    this.g.strokeStyle = this.o.fgColor
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false)
+                    this.g.stroke()
+
+                    return false
+                }
+            }
+        })
+    /* END JQUERY KNOB */
+
+
+</script>

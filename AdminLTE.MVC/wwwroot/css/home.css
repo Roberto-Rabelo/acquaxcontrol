@@ -1,0 +1,78 @@
+﻿
+
+@media (min-width: 768px) {
+    body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
+        transition: margin-left .3s ease-in-out;
+        margin-left: 0px;
+    }
+}   
+/* Top Menu */
+
+.loginbutton {
+    display: block;
+    padding: .5rem 1rem;
+    background-color: #5cbeea;
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+/* Fim Top Menu */
+
+/* Content Home */
+
+@media (min-width: 576px) {
+    .col-sm-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 40%;
+    }
+}
+
+.card-title {
+    float: left;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0;
+    padding-left: 30%;
+}
+
+img .card-img-top {
+    width: 95%;
+    padding-left: 5%;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #5cbeea;
+    border-color: #5cbeea;
+    display: block;
+}
+
+.quemsomos {
+    padding: 2%;
+}
+.linktop{
+    padding-left:12px;
+}
+
+.row.no-gutters {
+    background: #fff;
+}
+@media (max-width: 420px) {
+    .btnlogin{
+        width:240px !important;
+        margin-left:50px;
+    }
+    .titlehome {
+        font-size: 1.5rem !important;
+    }
+    .loginbutton{
+        margin-left:20px;
+    }
+    .comercial{
+        font-size:1.25rem;
+    }
+    
+    
+}

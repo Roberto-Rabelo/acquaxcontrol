@@ -1,0 +1,15 @@
+﻿
+.textocel {
+    display: none;
+}
+@media (max-width: 420px) {
+
+    .textocel {
+        display: block;
+        font-size: medium;
+    }
+
+    .textobemvindo {
+        display: none;
+    }
+}

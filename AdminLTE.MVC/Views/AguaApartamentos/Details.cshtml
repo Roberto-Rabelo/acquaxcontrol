@@ -1,0 +1,153 @@
+﻿@model AdminLTE.MVC.Models.AguaApartamento
+
+@{
+    ViewData["Title"] = "Details";
+
+    var id = @Html.DisplayFor(model => model.volume_consumido);
+}
+
+<h1>Detalhes Medições</h1>
+
+<br />
+
+
+@*<div>*@
+<h4>Apartamento   @Html.DisplayFor(model => model.Apartamento.Nome)</h4>
+@*<hr />*@
+<!--<dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_atual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_atual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_anterior)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_anterior)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dt_leitura_proxima)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dt_leitura_proxima)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bloco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bloco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_anterior)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mes_anterior)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mes_atual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mes_atual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.volume_consumido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.volume_consumido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_agua)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vlr_agua)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vlr_esgoto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vlr_esgoto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.area_comum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.area_comum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.total_unidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.total_unidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FotoPath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FotoPath)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apartamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apartamento.Nome)
+        </dd>
+    </dl>
+</div>
+<div>-->
+@*<a asp-action="Edit" asp-route-id="@Model.AguaApartamentoId">Edit</a> |*@
+@*<a asp-action="Index">Voltar a listagem </a>*@
+<!--</div>-->
+
+<table class="table">
+    <caption>ACQUAX DO BRASIL</caption>
+    <thead>
+        <tr>
+            <th style="text-align:center; " colspan="4">ACQUAX DO BRASIL</th>
+            <th style="text-align:center; " rowspan="6"> <img src="https://a-static.mlcdn.com.br/618x463/hidrometro-residencial-unijato-ecogyrus-energyrus/hidroreader/1144002/b999358e914877c338c8f85844a78bf2.jpg" alt="" class=" mr-2" style="height:100px; width:100px;"></th>
+        </tr>
+        <tr>
+            <td style="text-align:center; vertical-align:central; " rowspan="2">   @Html.DisplayNameFor(model => model.Apartamento.Nome): @Html.DisplayFor(model => model.Apartamento.Nome)</td>
+            <td class="tg-0lax" rowspan="2">
+                @Html.DisplayNameFor(model => model.bloco): @Html.DisplayFor(model => model.bloco) <br />
+                @Html.DisplayNameFor(model => model.Unidade): @Html.DisplayFor(model => model.Unidade)
+            </td>
+            <td class="tg-0lax" colspan="2">
+                @Html.DisplayNameFor(model => model.mes_atual): @Html.DisplayFor(model => model.dt_leitura_atual)
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                @Html.DisplayNameFor(model => model.dt_leitura_proxima): @Html.DisplayFor(model => model.dt_leitura_proxima)
+            </td>
+        </tr>
+        <tr>
+            <th style="text-align:center;" colspan="4">DADOS DA MEDIÇÃO</th>
+        </tr>
+        <tr>
+            <td class="tg-0lax">
+                @Html.DisplayNameFor(model => model.vlr_esgoto): @Html.DisplayFor(model => model.vlr_esgoto)<br />
+                @Html.DisplayNameFor(model => model.vlr_agua): @Html.DisplayFor(model => model.vlr_agua)<br />
+                @Html.DisplayNameFor(model => model.area_comum): @Html.DisplayFor(model => model.area_comum)
+            </td>
+            <td class="tg-0lax">
+                @Html.DisplayNameFor(model => model.mes_anterior): @Html.DisplayFor(model => model.mes_anterior)
+            </td>
+            <td class="tg-0lax" colspan="2">@Html.DisplayNameFor(model => model.mes_atual): @Html.DisplayFor(model => model.mes_atual)</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">@Html.DisplayNameFor(model => model.total_unidade): @Html.DisplayFor(model => model.total_unidade)</td>
+            <td class="tg-0lax" colspan="2">@Html.DisplayNameFor(model => model.volume_consumido): @Html.DisplayFor(model => model.volume_consumido)</td>
+        </tr>
+    </thead>
+</table>
+
+
+<a asp-action="index"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Voltar a listagem</a>
